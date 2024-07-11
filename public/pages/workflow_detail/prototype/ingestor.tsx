@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  EuiButton,
+  EuiSmallButton,
   EuiCodeEditor,
   EuiFieldText,
   EuiFlexGroup,
@@ -113,9 +113,9 @@ export function Ingestor(props: IngestorProps) {
                 />
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
-                <EuiButton onClick={onExecuteIngest} fill={false}>
+                <EuiSmallButton onClick={onExecuteIngest} fill={false}>
                   Ingest
-                </EuiButton>
+                </EuiSmallButton>
               </EuiFlexItem>
             </EuiFlexGroup>
           </EuiFlexItem>

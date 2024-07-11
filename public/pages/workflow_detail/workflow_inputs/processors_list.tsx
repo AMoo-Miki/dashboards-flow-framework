@@ -5,7 +5,7 @@
 
 import React, { useEffect, useState } from 'react';
 import {
-  EuiButton,
+  EuiSmallButton,
   EuiButtonIcon,
   EuiContextMenu,
   EuiFlexGroup,
@@ -172,7 +172,7 @@ export function ProcessorsList(props: ProcessorsListProps) {
         <div>
           <EuiPopover
             button={
-              <EuiButton
+              <EuiSmallButton
                 iconType="arrowDown"
                 iconSide="right"
                 onClick={() => {
@@ -182,7 +182,7 @@ export function ProcessorsList(props: ProcessorsListProps) {
                 {processors.length > 0
                   ? 'Add another processor'
                   : 'Add processor'}
-              </EuiButton>
+              </EuiSmallButton>
             }
             isOpen={isPopoverOpen}
             closePopover={closePopover}

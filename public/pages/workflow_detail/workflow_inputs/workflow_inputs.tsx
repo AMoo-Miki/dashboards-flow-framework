@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { useFormikContext } from 'formik';
 import { isEmpty } from 'lodash';
 import {
-  EuiButton,
+  EuiSmallButton,
   EuiButtonEmpty,
   EuiFlexGroup,
   EuiFlexItem,
@@ -373,12 +373,12 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                 <EuiFlexGroup direction="row" justifyContent="flexEnd">
                   {onIngest && !ingestEnabled ? (
                     <EuiFlexItem grow={false}>
-                      <EuiButton
+                      <EuiSmallButton
                         fill={true}
                         onClick={() => setSelectedStep(STEP.SEARCH)}
                       >
                         {`Search pipeline >`}
-                      </EuiButton>
+                      </EuiSmallButton>
                     </EuiFlexItem>
                   ) : onIngestAndUnprovisioned ? (
                     <>
@@ -390,35 +390,35 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                         </EuiButtonEmpty>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
-                        <EuiButton
+                        <EuiSmallButton
                           fill={true}
                           onClick={() => {
                             validateAndRunIngestion();
                           }}
                         >
                           Run ingestion
-                        </EuiButton>
+                        </EuiSmallButton>
                       </EuiFlexItem>
                     </>
                   ) : onIngestAndProvisioned ? (
                     <>
                       <EuiFlexItem grow={false}>
-                        <EuiButton
+                        <EuiSmallButton
                           fill={false}
                           onClick={() => {
                             validateAndRunIngestion();
                           }}
                         >
                           Run ingestion
-                        </EuiButton>
+                        </EuiSmallButton>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
-                        <EuiButton
+                        <EuiSmallButton
                           fill={true}
                           onClick={() => setSelectedStep(STEP.SEARCH)}
                         >
                           {`Search pipeline >`}
-                        </EuiButton>
+                        </EuiSmallButton>
                       </EuiFlexItem>
                     </>
                   ) : onSearch ? (
@@ -431,7 +431,7 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                         </EuiButtonEmpty>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
-                        <EuiButton
+                        <EuiSmallButton
                           disabled={false}
                           fill={false}
                           onClick={() => {
@@ -439,10 +439,10 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                           }}
                         >
                           Run query
-                        </EuiButton>
+                        </EuiSmallButton>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
-                        <EuiButton
+                        <EuiSmallButton
                           disabled={false}
                           fill={false}
                           onClick={() => {
@@ -450,7 +450,7 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                           }}
                         >
                           {`Export >`}
-                        </EuiButton>
+                        </EuiSmallButton>
                       </EuiFlexItem>
                     </>
                   ) : (
@@ -463,7 +463,7 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                         </EuiButtonEmpty>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
-                        <EuiButton
+                        <EuiSmallButton
                           disabled={false}
                           fill={true}
                           onClick={() => {
@@ -471,7 +471,7 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                           }}
                         >
                           Export
-                        </EuiButton>
+                        </EuiSmallButton>
                       </EuiFlexItem>
                     </>
                   )}

@@ -12,7 +12,7 @@ import {
   EuiTitle,
   EuiCard,
   EuiHorizontalRule,
-  EuiButton,
+  EuiSmallButton,
 } from '@elastic/eui';
 import { Workflow } from '../../../../common';
 import { APP_PATH } from '../../../utils';
@@ -46,7 +46,7 @@ export function UseCase(props: UseCaseProps) {
         </EuiFlexItem>
         <EuiFlexGroup direction="column" alignItems="center">
           <EuiFlexItem grow={false}>
-            <EuiButton
+            <EuiSmallButton
               disabled={false}
               isLoading={false}
               onClick={() => {
@@ -70,7 +70,7 @@ export function UseCase(props: UseCaseProps) {
               }}
             >
               Create
-            </EuiButton>
+            </EuiSmallButton>
           </EuiFlexItem>
         </EuiFlexGroup>
       </EuiFlexGroup>

@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect } from 'react';
 import {
-  EuiButton,
+  EuiSmallButton,
   EuiCodeEditor,
   EuiFieldText,
   EuiFlexGroup,
@@ -120,9 +120,9 @@ export function QueryExecutor(props: QueryExecutorProps) {
                 />
               </EuiFlexItem>
               <EuiFlexItem grow={false}>
-                <EuiButton onClick={onExecuteSearch} fill={false}>
+                <EuiSmallButton onClick={onExecuteSearch} fill={false}>
                   Search
-                </EuiButton>
+                </EuiSmallButton>
               </EuiFlexItem>
             </EuiFlexGroup>
           </EuiFlexItem>
