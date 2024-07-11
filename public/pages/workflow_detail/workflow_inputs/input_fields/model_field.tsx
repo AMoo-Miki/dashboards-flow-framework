@@ -12,7 +12,7 @@ import {
   EuiRadioGroup,
   EuiRadioGroupOption,
   EuiSpacer,
-  EuiSuperSelect,
+  EuiCompressedSuperSelect,
   EuiSuperSelectOption,
   EuiText,
 } from '@elastic/eui';
@@ -189,7 +189,7 @@ export function ModelField(props: ModelFieldProps) {
                 }}
               ></EuiRadioGroup>
               <EuiSpacer size="s" />
-              <EuiSuperSelect
+              <EuiCompressedSuperSelect
                 options={selectableModels.map(
                   (option) =>
                     ({

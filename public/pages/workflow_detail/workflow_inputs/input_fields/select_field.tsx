@@ -8,7 +8,7 @@ import { Field, FieldProps, useFormikContext } from 'formik';
 import {
   EuiCompressedFormRow,
   EuiLink,
-  EuiSuperSelect,
+  EuiCompressedSuperSelect,
   EuiSuperSelectOption,
   EuiText,
 } from '@elastic/eui';
@@ -56,7 +56,7 @@ export function SelectField(props: SelectFieldProps) {
             }
             helpText={props.field.helpText || undefined}
           >
-            <EuiSuperSelect
+            <EuiCompressedSuperSelect
               options={options.map(
                 (option) =>
                   ({
