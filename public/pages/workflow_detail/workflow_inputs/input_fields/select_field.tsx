@@ -6,7 +6,7 @@
 import React, { useEffect, useState } from 'react';
 import { Field, FieldProps, useFormikContext } from 'formik';
 import {
-  EuiFormRow,
+  EuiCompressedFormRow,
   EuiLink,
   EuiSuperSelect,
   EuiSuperSelectOption,
@@ -43,7 +43,7 @@ export function SelectField(props: SelectFieldProps) {
     <Field name={formField}>
       {({ field, form }: FieldProps) => {
         return (
-          <EuiFormRow
+          <EuiCompressedFormRow
             label={props.field.label}
             labelAppend={
               props.field.helpLink ? (
@@ -77,7 +77,7 @@ export function SelectField(props: SelectFieldProps) {
                 touched
               )}
             />
-          </EuiFormRow>
+          </EuiCompressedFormRow>
         );
       }}
     </Field>

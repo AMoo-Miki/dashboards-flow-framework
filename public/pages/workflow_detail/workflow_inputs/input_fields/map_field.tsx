@@ -10,7 +10,7 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiFormControlLayoutDelimited,
-  EuiFormRow,
+  EuiCompressedFormRow,
   EuiLink,
   EuiText,
 } from '@elastic/eui';
@@ -58,7 +58,7 @@ export function MapField(props: MapFieldProps) {
     <Field name={props.fieldPath}>
       {({ field, form }: FieldProps) => {
         return (
-          <EuiFormRow
+          <EuiCompressedFormRow
             key={props.fieldPath}
             label={props.field.label}
             labelAppend={
@@ -156,7 +156,7 @@ export function MapField(props: MapFieldProps) {
                 </div>
               </EuiFlexItem>
             </EuiFlexGroup>
-          </EuiFormRow>
+          </EuiCompressedFormRow>
         );
       }}
     </Field>

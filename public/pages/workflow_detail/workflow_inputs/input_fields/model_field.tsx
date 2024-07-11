@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, FieldProps, getIn, useFormikContext } from 'formik';
 import {
-  EuiFormRow,
+  EuiCompressedFormRow,
   EuiLink,
   EuiRadioGroup,
   EuiRadioGroupOption,
@@ -160,7 +160,7 @@ export function ModelField(props: ModelFieldProps) {
           setSelectedRadioId(field.value?.category || MODEL_CATEGORY.DEPLOYED);
         }, [field.value?.category]);
         return (
-          <EuiFormRow
+          <EuiCompressedFormRow
             label={props.field.label}
             labelAppend={
               props.field.helpLink ? (
@@ -228,7 +228,7 @@ export function ModelField(props: ModelFieldProps) {
                 }
               />
             </>
-          </EuiFormRow>
+          </EuiCompressedFormRow>
         );
       }}
     </Field>
