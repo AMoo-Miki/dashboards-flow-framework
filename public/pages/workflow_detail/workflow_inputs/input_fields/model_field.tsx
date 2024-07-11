@@ -9,7 +9,7 @@ import { Field, FieldProps, getIn, useFormikContext } from 'formik';
 import {
   EuiCompressedFormRow,
   EuiLink,
-  EuiRadioGroup,
+  EuiCompressedRadioGroup,
   EuiRadioGroupOption,
   EuiSpacer,
   EuiCompressedSuperSelect,
@@ -174,7 +174,7 @@ export function ModelField(props: ModelFieldProps) {
             helpText={props.field.helpText || undefined}
           >
             <>
-              <EuiRadioGroup
+              <EuiCompressedRadioGroup
                 options={radioOptions}
                 idSelected={field.value?.category || MODEL_CATEGORY.DEPLOYED}
                 onChange={(radioId) => {
@@ -187,7 +187,7 @@ export function ModelField(props: ModelFieldProps) {
                   } as ModelFormValue);
                   props.onFormChange();
                 }}
-              ></EuiRadioGroup>
+              ></EuiCompressedRadioGroup>
               <EuiSpacer size="s" />
               <EuiCompressedSuperSelect
                 options={selectableModels.map(
