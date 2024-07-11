@@ -6,7 +6,7 @@
 import React, { useEffect } from 'react';
 import { useFormikContext } from 'formik';
 import {
-  EuiFilePicker,
+  EuiCompressedFilePicker,
   EuiFlexGroup,
   EuiFlexItem,
   EuiTitle,
@@ -49,7 +49,7 @@ export function SourceData(props: SourceDataProps) {
         </EuiTitle>
       </EuiFlexItem>
       <EuiFlexItem grow={false}>
-        <EuiFilePicker
+        <EuiCompressedFilePicker
           accept="application/json"
           multiple={false}
           initialPromptText="Select a JSON file containing documents"
