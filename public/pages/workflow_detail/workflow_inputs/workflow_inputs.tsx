@@ -8,7 +8,7 @@ import { useFormikContext } from 'formik';
 import { isEmpty } from 'lodash';
 import {
   EuiSmallButton,
-  EuiButtonEmpty,
+  EuiSmallButtonEmpty,
   EuiFlexGroup,
   EuiFlexItem,
   EuiHorizontalRule,
@@ -383,11 +383,11 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                   ) : onIngestAndUnprovisioned ? (
                     <>
                       <EuiFlexItem grow={false}>
-                        <EuiButtonEmpty
+                        <EuiSmallButtonEmpty
                           onClick={() => setSelectedStep(STEP.SEARCH)}
                         >
                           Skip
-                        </EuiButtonEmpty>
+                        </EuiSmallButtonEmpty>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
                         <EuiSmallButton
@@ -424,11 +424,11 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                   ) : onSearch ? (
                     <>
                       <EuiFlexItem grow={false}>
-                        <EuiButtonEmpty
+                        <EuiSmallButtonEmpty
                           onClick={() => setSelectedStep(STEP.INGEST)}
                         >
                           Back
-                        </EuiButtonEmpty>
+                        </EuiSmallButtonEmpty>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
                         <EuiSmallButton
@@ -456,11 +456,11 @@ export function WorkflowInputs(props: WorkflowInputsProps) {
                   ) : (
                     <>
                       <EuiFlexItem grow={false}>
-                        <EuiButtonEmpty
+                        <EuiSmallButtonEmpty
                           onClick={() => setSelectedStep(STEP.SEARCH)}
                         >
                           Back
-                        </EuiButtonEmpty>
+                        </EuiSmallButtonEmpty>
                       </EuiFlexItem>
                       <EuiFlexItem grow={false}>
                         <EuiSmallButton
