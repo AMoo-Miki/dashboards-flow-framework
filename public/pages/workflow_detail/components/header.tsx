@@ -14,11 +14,29 @@ import {
 } from '@elastic/eui';
 import {
   DEFAULT_NEW_WORKFLOW_STATE,
+  PLUGIN_ID,
   WORKFLOW_STATE,
   Workflow,
   toFormattedDate,
 } from '../../../../common';
-import { APP_PATH } from '../../../utils';
+import { APP_PATH, getDataSourceId } from '../../../utils';
+import {
+  getApplication,
+  getCore,
+  getDataSourceEnabled,
+  getHeaderActionMenu,
+  getNavigationUI,
+  getNotifications,
+  getSavedObjectsClient,
+  getUISettings,
+} from '../../../services';
+import { HeaderVariant } from '../../../../../../src/core/public';
+import {
+  TopNavControlTextData,
+  TopNavMenuData,
+  TopNavMenuIconData,
+} from '../../../../../../src/plugins/navigation/public';
+
 
 interface WorkflowDetailHeaderProps {
   workflow?: Workflow;
@@ -47,17 +65,86 @@ export function WorkflowDetailHeader(props: WorkflowDetailHeaderProps) {
     }
   }, [props.workflow]);
 
-  return (
+  const { TopNavMenu, HeaderControl } = getNavigationUI();
+  const { setAppRightControls } = getApplication();
+  const { chrome: { setHeaderVariant } } = getCore();
+  const uiSettings = getUISettings();
+  const showActionsInHeader = uiSettings.get('home:useNewHomePage');
+
+  useEffect(() => {
+    if (showActionsInHeader) {
+      setHeaderVariant?.(HeaderVariant.APPLICATION);
+    }
+
+    return () => {
+      setHeaderVariant?.();
+    };
+  }, [setHeaderVariant, showActionsInHeader]);
+
+  const onExitButtonClick = () => {
+    history.replace(APP_PATH.WORKFLOWS);
+  };
+
+  const topNavConfig: TopNavMenuData[] = [
+    {
+      iconType: 'exit',
+      tooltip: 'Return to projects',
+      ariaLabel: 'Exit',
+      run: onExitButtonClick,
+      controlType: 'icon',
+    } as TopNavMenuIconData,
+  ];
+
+  const dataSourceEnabled = getDataSourceEnabled().enabled;
+  const dataSourceId = getDataSourceId();
+
+  return showActionsInHeader ? (
+    <>
+      <TopNavMenu
+        appName={PLUGIN_ID}
+        config={topNavConfig}
+        screenTitle={workflowState}
+        showDataSourceMenu={true}
+        dataSourceMenuConfig={dataSourceEnabled ? {
+          componentType: 'DataSourceView',
+          componentConfig: {
+            activeOption: [{ id: dataSourceId }],
+            fullWidth: false,
+            savedObjects: getSavedObjectsClient(),
+            notifications: getNotifications(),
+          }
+        } : undefined}
+        showSearchBar={false}
+        showQueryBar={false}
+        showQueryInput={false}
+        showDatePicker={false}
+        showFilterBar={false}
+        useDefaultBehaviors={true}
+        setMenuMountPoint={getHeaderActionMenu()}
+        groupActions={showActionsInHeader}
+      />
+      <HeaderControl
+        setMountPoint={setAppRightControls}
+        controls={[
+          {
+            text: `Last updated: ${workflowLastUpdated}`,
+            color: 'subdued',
+            className: 'workflow-detail-last-updated'
+          } as TopNavControlTextData
+        ]}
+      />
+    </>
+  ) : (
     <EuiPageHeader
       style={{ marginTop: '-8px' }}
-      pageTitle={
+      pageTitle={(
         <EuiFlexGroup direction="row" alignItems="flexEnd" gutterSize="m">
           <EuiFlexItem grow={false}>{workflowName}</EuiFlexItem>
           <EuiFlexItem grow={false} style={{ marginBottom: '10px' }}>
             <EuiText size="m">{workflowState}</EuiText>
           </EuiFlexItem>
         </EuiFlexGroup>
-      }
+      )}
       rightSideItems={[
         <EuiSmallButtonEmpty
           style={{ marginTop: '8px' }}
