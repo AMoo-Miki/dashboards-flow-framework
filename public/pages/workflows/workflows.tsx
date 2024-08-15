@@ -47,6 +47,7 @@ import { prettifyErrorMessage } from '../../../common/utils';
 import {
   DataSourceOption
 } from '../../../../../src/plugins/data_source_management/public/components/data_source_menu/types';
+import { TopNavControlLinkData } from '../../../../../src/plugins/navigation/public';
 
 export interface WorkflowsRouterProps {}
 
@@ -210,7 +211,20 @@ export function Workflows(props: WorkflowsProps) {
   const description = 'Design, experiment, and prototype your solutions with workflows. Build your search and last mile ingestion flows.';
   const pageTitleAndDescription = showActionsInHeader ? (
     <HeaderControl
-      controls={[{ description }]}
+      controls={[
+        {
+          description: 'Design, experiment, and prototype your solutions with Search Studio. Build your search and last mile ingestion flows with a visual interface. Experiment different configurations with prototyping tools and launch them into your environment.',
+          links: [
+            {
+              label: 'Learn more',
+              iconType: 'popout',
+              iconSide: 'right',
+              href: '#',
+              controlType: 'link',
+            } as TopNavControlLinkData,
+          ]
+        },
+      ]}
       setMountPoint={setAppBottomControls}
     />
   ) : (
